@@ -1,3 +1,4 @@
+import 'package:camping_app_ui_flutter/Screens/Home/home.dart';
 import 'package:camping_app_ui_flutter/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -50,7 +51,14 @@ class WelcomeScreen extends StatelessWidget {
                     width: size.width * 0.5,
                     height: 60.0,
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ),
+                        );
+                      },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(80.0)),
                       textColor: Colors.white,

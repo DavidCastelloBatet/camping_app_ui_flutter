@@ -1,3 +1,4 @@
+import 'package:camping_app_ui_flutter/Models/Place.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter/services.dart';
@@ -5,6 +6,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:camping_app_ui_flutter/Models/Activity.dart';
 import 'package:camping_app_ui_flutter/Screens/Home/components/activity_card.dart';
 import 'package:camping_app_ui_flutter/constants.dart';
+
+import 'components/place_card.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -66,6 +69,29 @@ class HomeScreen extends StatelessWidget {
                                     activity: demoActivities[index],
                                   );
                                 }),
+                              ],
+                            ),
+                          ),
+                          Text(
+                            'Recomended Places',
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                              color: kTextColor,
+                            ),
+                          ),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                ...List.generate(
+                                  demoPlaces.length,
+                                  (index) {
+                                    return PlaceCard(
+                                      place: demoPlaces[index],
+                                    );
+                                  },
+                                ),
                               ],
                             ),
                           ),

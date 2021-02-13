@@ -1,7 +1,10 @@
-import 'package:camping_app_ui_flutter/constants.dart';
 import 'package:flutter/material.dart';
+import 'dart:ui';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:camping_app_ui_flutter/Models/Activity.dart';
+import 'package:camping_app_ui_flutter/Screens/Home/components/activity_card.dart';
+import 'package:camping_app_ui_flutter/constants.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -56,7 +59,14 @@ class HomeScreen extends StatelessWidget {
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
-                              children: [],
+                              children: [
+                                ...List.generate(demoActivities.length,
+                                    (index) {
+                                  return ActivityCard(
+                                    activity: demoActivities[index],
+                                  );
+                                }),
+                              ],
                             ),
                           ),
                         ],

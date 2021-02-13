@@ -16,6 +16,7 @@ class ActivityCard extends StatefulWidget {
 }
 
 class _ActivityCardState extends State<ActivityCard> {
+  int selectedActivity = -1;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,7 +29,10 @@ class _ActivityCardState extends State<ActivityCard> {
         width: 100.0,
         child: GestureDetector(
           onTap: () {
-            print('on tap');
+            setState(() {
+              selectedActivity =
+                  selectedActivity == -1 ? widget.activity.id : -1;
+            });
           },
           child: Container(
             decoration: new BoxDecoration(
@@ -37,7 +41,9 @@ class _ActivityCardState extends State<ActivityCard> {
                 color: kPrimaryColor,
                 width: 1,
               ),
-              color: Colors.white,
+              color: selectedActivity == widget.activity.id
+                  ? kPrimaryColor
+                  : Colors.white,
             ),
             padding: EdgeInsets.all(15.0),
             alignment: Alignment.center,
@@ -49,14 +55,20 @@ class _ActivityCardState extends State<ActivityCard> {
                     tag: widget.activity.id,
                     child: SvgPicture.asset(
                       widget.activity.icon,
-                      color: kPrimaryColor,
+                      color: selectedActivity == widget.activity.id
+                          ? Colors.white
+                          : kPrimaryColor,
                     ),
                   ),
                 ),
                 Text(
                   widget.activity.name,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: kPrimaryColor),
+                  style: TextStyle(
+                    color: selectedActivity == widget.activity.id
+                        ? Colors.white
+                        : kPrimaryColor,
+                  ),
                 ),
               ],
             ),

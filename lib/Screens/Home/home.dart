@@ -95,6 +95,47 @@ class HomeScreen extends StatelessWidget {
                               ],
                             ),
                           ),
+                          Container(
+                            padding: EdgeInsets.all(20.0),
+                            margin: EdgeInsets.only(bottom: 20.0),
+                            decoration: BoxDecoration(
+                              color: Color(0xFFf5f5f5),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      'Create New Place',
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        color: Color(0xFF5a5a5a),
+                                      ),
+                                    ),
+                                    Text(
+                                      'Create camping with your Friends',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        color: Color(0xFF5a5a5a),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                  child: IconButton(
+                                    icon: SvgPicture.asset(
+                                        'assets/icons/new.svg'),
+                                    onPressed: () {
+                                      print('new');
+                                    },
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
